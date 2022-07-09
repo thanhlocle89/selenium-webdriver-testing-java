@@ -21,7 +21,6 @@ public class Topic_00_Template {
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get("https://www.facebook.com/");
 	}
 
 	@Test
@@ -32,12 +31,6 @@ public class Topic_00_Template {
 	@Test
 	public void TC_02() {
 
-	}
-
-	@Test
-	public void TC_03_LoginFormDisplayed() {
-		// Login form displayed
-		Assert.assertTrue(driver.findElement(By.xpath("//form[@data-testid='royal_login_form']")).isDisplayed());
 	}
 
 	@AfterClass
