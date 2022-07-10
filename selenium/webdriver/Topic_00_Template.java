@@ -28,11 +28,6 @@ public class Topic_00_Template {
 		driver.get("https://www.facebook.com/");
 	}
 
-	@Test
-	public void TC_02() {
-
-	}
-
 	@AfterClass
 	public void afterClass() {
 		driver.quit();
