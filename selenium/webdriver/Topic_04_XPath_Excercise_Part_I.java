@@ -47,8 +47,8 @@ public class Topic_04_XPath_Excercise_Part_I {
 	public void Register_02_Invalid_Email() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
-		driver.findElement(By.id("txtEmail")).sendKeys("123&123@123");
-		driver.findElement(By.id("txtCEmail")).sendKeys("123&123@123");
+		driver.findElement(By.id("txtEmail")).sendKeys("123@123@345");
+		driver.findElement(By.id("txtCEmail")).sendKeys("123@123@345");
 		driver.findElement(By.id("txtPassword")).sendKeys("123456");
 		driver.findElement(By.id("txtCPassword")).sendKeys("123456");
 		driver.findElement(By.id("txtPhone")).sendKeys("0987654231");
