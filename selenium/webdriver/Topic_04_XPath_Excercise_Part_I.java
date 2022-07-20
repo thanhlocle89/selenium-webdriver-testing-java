@@ -43,8 +43,9 @@ public class Topic_04_XPath_Excercise_Part_I {
 		Assert.assertEquals(driver.findElement(By.id("txtPhone-error")).getText(), "Vui lòng nhập số điện thoại.");
 	}
 
+	@Test
 	public void Register_02_Invalid_Email() {
-		driver.get("https://alada.vn/tai-khoan/dang-ky.html");	
+		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
 		driver.findElement(By.id("txtEmail")).sendKeys("123&123@123");
 		driver.findElement(By.id("txtCEmail")).sendKeys("123&123@123");
@@ -57,6 +58,7 @@ public class Topic_04_XPath_Excercise_Part_I {
 		Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
 	}
 
+	@Test
 	public void Register_03_Incorect_Confirm_Email() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
@@ -70,6 +72,7 @@ public class Topic_04_XPath_Excercise_Part_I {
 		Assert.assertEquals(driver.findElement(By.id("txtCEmail-error")).getText(), "Email nhập lại không đúng");
 	}
 
+	@Test
 	public void Register_04_Password_Less_6Character() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
@@ -86,6 +89,7 @@ public class Topic_04_XPath_Excercise_Part_I {
 				"Mật khẩu phải có ít nhất 6 ký tự");
 	}
 
+	@Test
 	public void Register_05_Incorrect_Confirm_Password() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
@@ -99,6 +103,7 @@ public class Topic_04_XPath_Excercise_Part_I {
 		Assert.assertEquals(driver.findElement(By.id("txtCPassword-error")).getText(), "Mật khẩu bạn nhập không khớp");
 	}
 
+	@Test
 	public void Register_06_Invalid_Phone_Number() {
 		driver.get("https://alada.vn/tai-khoan/dang-ky.html");
 		driver.findElement(By.id("txtFirstname")).sendKeys("Le Thanh Loc");
