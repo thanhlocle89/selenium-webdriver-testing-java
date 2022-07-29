@@ -1,5 +1,6 @@
 package webdriver;
 
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -40,5 +41,10 @@ public class Topic_00_Template {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public int generateRandomNumber() {
+		Random rand = new Random();
+		return rand.nextInt(9999);
 	}
 }
