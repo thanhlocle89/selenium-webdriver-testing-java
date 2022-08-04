@@ -40,7 +40,7 @@ public class Topic_10_Button_CheckBox_RadioButton {
 		Assert.assertTrue(driver.findElement(loginButton).isEnabled());
 		
 		sleepInsecond(3);
-		
+		sleepInsecond(3);
 		String backgroundColorHexa = Color.fromString(driver.findElement(loginButton).getCssValue("background-color")).asHex().toUpperCase();
 		Assert.assertEquals(backgroundColorHexa, "#C92127");
 		
