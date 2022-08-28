@@ -34,7 +34,7 @@ public class Topic_00_Template {
 		driver.quit();
 	}
 	
-	public void sleepInsecond (long timeInSecond) {
+	public void sleepInSecond (long timeInSecond) {
 		try {
 			Thread.sleep(timeInSecond*1000);
 		} catch (InterruptedException e) {
