@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Web Application" >
+	<parameter name="environment" value="live" />
+	
+	<test name="Run on Firefore">
+		<!-- <groups>-->
+		<!-- <run>-->
+		<!-- <include name="group1" />-->s
+		<!-- <include name="group2" />-->
+		<!-- 	</run>-->
+		<!-- </groups>-->
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<!-- 	<class name="testng_framework.PartI_Annotations"/>-->
+			<class name="testng_framework.PartV_Parameter" />
+			<!-- 	<class name="testng_framework.PartII_Group"/>-->
+			<!-- <methods>-->
+			<!--  <include  name = "TC_01" />-->
+			<!-- 	</methods>-->
+		</classes>
+	</test> <!-- Test -->
+	<test name="Run on Chrome">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="testng_framework.PartV_Parameter" />
+		</classes>
+	</test>
+	<test name="Run on EDGE">
+		<parameter name="browser" value="edge" />
+		<classes>
+			<class name="testng_framework.PartV_Parameter" />
+		</classes>
+	</test>
+</suite> <!-- Suite -->

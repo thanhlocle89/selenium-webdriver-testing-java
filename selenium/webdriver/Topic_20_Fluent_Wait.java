@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -19,7 +18,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import com.google.common.base.Functions;
+import com.google.common.base.Function;
 
 public class Topic_20_Fluent_Wait {
 	WebDriver driver;
@@ -49,6 +48,7 @@ public class Topic_20_Fluent_Wait {
 		fluentWait = new FluentWait<WebElement>(countDownElement);
 		fluentWait.withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofMillis(100))
 				.ignoring(NoSuchElementException.class);
+
 
 		fluentWait.until(new Function<WebElement, Boolean>() {
 
@@ -86,22 +86,61 @@ public class Topic_20_Fluent_Wait {
 		driver.get("https://automationfc.github.io/dynamic-loading/");
 		driver.findElement(By.cssSelector("div#start>button")).click();
 		
+		
 		By finishElement = By.cssSelector("div#finish>h4");
-		fluentWaitBy =  new FluentWait<By>(finishElement);
+		isElementDisplayed(finishElement);
+//		fluentWaitBy =  new FluentWait<By>(finishElement);
+//		
+//		fluentWaitBy.withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofMillis(100))
+//		.ignoring(NoSuchElementException.class);
+//		
+//		fluentWaitBy.until(new Function<By, Boolean>() {
+//
+//			@Override
+//			public Boolean apply(By finishElement) {
+//				// TODO Auto-generated method stub
+//				return driver.findElement(finishElement).isDisplayed();
+//			}
+//		});
+	}
+	private long sumTime =30;
+	private long pollTime =1;
+	public WebElement findElement(By locator) {
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(sumTime))
+				.pollingEvery(Duration.ofMillis(pollTime)).ignoring(NoSuchElementException.class);
 		
-		fluentWaitBy.withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofMillis(100))
-		.ignoring(NoSuchElementException.class);
-		
-		fluentWaitBy.until(new Function<By, Boolean>() {
+		WebElement element= wait.until(new Function<WebDriver, WebElement>() {
 
 			@Override
-			public Boolean apply(By finishElement) {
+			public WebElement apply(WebDriver driver) {
 				// TODO Auto-generated method stub
-				return driver.findElement(finishElement).isDisplayed();
+				return driver.findElement(locator);
 			}
 		});
+		return element;
+	}
+	
+	public WebElement waitElementVisble(By locator) {
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(sumTime))
+				.pollingEvery(Duration.ofMillis(pollTime)).ignoring(NoSuchElementException.class);
+		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	public Boolean isElementDisplayed(By locator) {
+		WebElement element = waitElementVisble(locator);
+		FluentWait<WebElement> wait = new FluentWait<WebElement>(element).withTimeout(Duration.ofSeconds(sumTime))
+				.pollingEvery(Duration.ofMillis(pollTime)).ignoring(NoSuchElementException.class);
 		
+		Boolean isDisplay = wait.until(new Function<WebElement, Boolean>() {
 
+			@Override
+			public Boolean apply(WebElement element) {
+				// TODO Auto-generated method stub
+				Boolean flag = element.isDisplayed();
+				return flag;
+			}
+		});
+			return isDisplay;
 	}
 	public String getTimeStamp() {
 		// TODO Auto-generated method stub
